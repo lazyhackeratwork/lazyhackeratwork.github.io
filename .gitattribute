@@ -1,1 +1,2 @@
 *.wasm linguist-language=Go
+wasm_exec.js linguist-vendored
