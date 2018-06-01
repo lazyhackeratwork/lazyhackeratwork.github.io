@@ -9,7 +9,7 @@ let mod, inst;
 WebAssembly.instantiateStreaming(fetch("present.wasm", {credentials: 'include'}), go.importObject).then((result) => {
     mod = result.module;
     inst = result.instance;
-    document.getElementById("runButton").disabled = false;
+    run();
 });
 async function run() {
     console.clear();
