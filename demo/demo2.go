@@ -48,7 +48,6 @@ func main() {
 func cbClear(e js.Value) {
 
 	window := browser.GetWindow()
-
 	element := window.Document.GetElementById("ivy-out")
 	element.SetInnerHTML("")
 	express := window.Document.GetElementById("expression")

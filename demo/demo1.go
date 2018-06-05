@@ -18,7 +18,6 @@ func cb(args []js.Value) {
 
 // START DEMO1_2 OMIT
 func cbQuit(e js.Value) {
-	println("got Quit event callback!")
 	window := browser.GetWindow()
 	window.Document.GetElementById("runButton").SetProperty("disabled", false)
 	window.Document.GetElementById("quit").SetAttribute("disabled", true)
@@ -46,8 +45,8 @@ func keepalive() {
 
 // END DEMO1_4 OMIT
 
+// START DEMO1_1 OMIT
 func main() {
-	// START DEMO1_1 OMIT
 	q := js.NewEventCallback(false, false, false, cbQuit)
 	defer q.Close()
 
@@ -56,38 +55,30 @@ func main() {
 	runButton.SetAttribute("disabled", true)
 
 	quitButton := window.Document.GetElementById("quit")
-	quitButton.AddEventListener(browser.EventClick, q)
+	quitButton.AddEventListener(browser.EventClick, q) // HL
 	quitButton.SetProperty("disabled", false)
 
 	window.Alert("Triggered from Go WASM module")
 	window.Console.Info("hello, browser console")
 	// END DEMO1_1 OMIT
 
-	canvas, err := window.Document.GetElementById("testcanvas").ToCanvas()
-	if err != nil {
-		window.Console.Warn(err.Error())
-	}
-
 	// START DEMO1_3 OMIT
-	// Draw a cicule in the canvas.
+	canvas, _ := window.Document.GetElementById("testcanvas").ToCanvas() // HL
+
 	canvas.Clear()
 	canvas.BeginPath()
 	canvas.Arc(100, 75, 50, 0, 2*math.Pi, false)
 	canvas.Stroke()
 
-	// A Go routine that prints its counter to the canvas.
 	canvas.Font("30px Arial")
-	time.Sleep(5 * time.Second)
-	go func() {
+	go func() { // HL
 		for i := 0; i < 10; i++ {
-
 			canvas.Clear()
 			canvas.FillText(strconv.Itoa(i), 10, 50)
-			time.Sleep(1 * time.Second) // sleep allows the browser to take control otherwise the whole UI gets frozen.
+			time.Sleep(1 * time.Second) // HL
 		}
 		canvas.Clear()
 		canvas.FillText("Stop counting!", 10, 50)
-
 	}()
 	window.Console.Info("Go routine running while this message is printed to the console.")
 	// END DEMO1_3 OMIT

@@ -29,41 +29,44 @@ Non-Goal
 
 * Demo 1: Go as primary driver 
 
-.link https://lazyhackeratwork.github.io/wasmgo
+.link https://lazyhackeratwork.github.io/wasm
 
 * HTML
 
-.code code/demo1_html
+.code demo1_html
   
 * Events, DOM, Browser Objects and Functions
 
-.code code/demo1.go /START DEMO1_1/,/END DEMO1_1/
+.code demo1.go /START DEMO1_2/,/END DEMO1_2/
 
-.code code/demo1.go /START DEMO1_2/,/END DEMO1_2/
+.code demo1.go /START DEMO1_1/,/END DEMO1_1/
 
 * Canvas, Go Routines, Sleep
 
-.code code/demo1.go /START DEMO1_3/,/END DEMO1_3/
+.code demo1.go /START DEMO1_3/,/END DEMO1_3/
 
 * Keep Alive
 
-.code code/demo1.go /START DEMO1_4/,/END DEMO1_4/
+.code demo1.go /START DEMO1_4/,/END DEMO1_4/
 
 * Ivy Demo
 
-- Demo of Ivy.
+.link https://lazyhackeratwork.github.io/ivy
+
 - No changes to the Ivy code.
 - FE Built with HTML + CSS + Go
 
-.link https://lazyhackeratwork.github.io/ivy
+Background:
+
+.iframe https://www.youtube.com/embed/sQ6-HyPxHKg?t=21m43s 315 560
 
 * Setting up events
 
-.code code/demo2.go /START DEMO2_1/,/END DEMO2_1/
+.code demo2.go /START DEMO2_1/,/END DEMO2_1/
 
 * Respond to events
 
-.code code/demo2.go /START DEMO2_2/,/END DEMO2_2/
+.code demo2.go /START DEMO2_2/,/END DEMO2_2/
 
 * Last Demo.
 
