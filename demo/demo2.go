@@ -37,8 +37,7 @@ func main() {
 	conf.SetMaxDigits(1e4)
 	conf.SetOrigin(1)
 	conf.SetPrompt("")
-
-	context = exec.NewContext(&conf)
+	context = exec.NewContext(&conf) // HL
 
 	keepalive()
 }
@@ -63,7 +62,7 @@ func cbRunIvy(e js.Value) {
 		express := window.Document.GetElementById("expression")
 
 		expr := express.Value()
-		res, err := mobile.Eval(expr)
+		res, err := mobile.Eval(expr) // HL
 		if err != nil {
 			window.Console.Warn(err.Error())
 			return
