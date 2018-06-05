@@ -7,7 +7,6 @@ import (
 
 	"lazyhackergo.com/browser"
 	"robpike.io/ivy/config"
-	"robpike.io/ivy/exec"
 	"robpike.io/ivy/mobile"
 	"robpike.io/ivy/value"
 )
@@ -31,13 +30,6 @@ func main() {
 	express.AddEventListener(browser.EventKeyUp, ivy)
 	window.Document.GetElementById("loadspinner").SetAttribute("class", "")
 	express.Focus()
-
-	conf.SetFormat("")
-	conf.SetMaxBits(1e9)
-	conf.SetMaxDigits(1e4)
-	conf.SetOrigin(1)
-	conf.SetPrompt("")
-	context = exec.NewContext(&conf) // HL
 
 	keepalive()
 }
