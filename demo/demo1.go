@@ -47,7 +47,7 @@ func keepalive() {
 
 // START DEMO1_1 OMIT
 func main() {
-	q := js.NewEventCallback(false, false, false, cbQuit)
+	q := js.NewEventCallback(false, false, false, cbQuit) // HL
 	defer q.Close()
 
 	window := browser.GetWindow()
